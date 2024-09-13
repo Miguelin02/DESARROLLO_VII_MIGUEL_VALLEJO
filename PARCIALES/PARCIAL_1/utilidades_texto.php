@@ -5,6 +5,7 @@ $texto = "Hola, Mundo";
 function contar_palabras($texto) {
     return  strlen($texto);
 }
+print(contar_palabras($texto));
 function contar_vocales($texto) {
     $cont = strlen($texto);
     $nText = strtolower($texto);
@@ -19,6 +20,7 @@ function contar_vocales($texto) {
     }
       
 }
+
 function invertir_palabras($texto) {
 
 $div = explode(" ", $texto);
@@ -28,8 +30,5 @@ for ($i = $maximo; $i <=0; $i--){
 }
     return $invertido;
 }
-
-
-
 
 ?>
