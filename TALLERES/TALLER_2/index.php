@@ -27,8 +27,7 @@ echo "<br>";
 var_dump(PROFESION);
 echo "<br>";
 ?>
-                    
-
+                
                     
 
 
