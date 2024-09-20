@@ -3,7 +3,7 @@
 $ciudades = ["Nueva York", "Tokio", "Londres", "París", "Sídney", "Río de Janeiro", "Moscú", "Berlín", "Ciudad del Cabo", "Toronto"];
 
 // 2. Imprimir el arreglo original
-echo "Ciudades originales:\n";
+echo "Ciudades originales:\n <br>";
 print_r($ciudades);
 
 // 3. Agregar 2 ciudades más al final del arreglo
@@ -16,16 +16,16 @@ array_splice($ciudades, 2, 1);
 array_splice($ciudades, 4, 0, "Mumbai");
 
 // 6. Imprimir el arreglo modificado
-echo "\nCiudades modificadas:\n";
+echo "\nCiudades modificadas:\n <br>";
 print_r($ciudades);
 
 // 7. Crear una función que imprima las ciudades en orden alfabético
 function imprimirCiudadesOrdenadas($arr) {
     $ordenado = $arr;
     sort($ordenado);
-    echo "Ciudades en orden alfabético:\n";
+    echo "Ciudades en orden alfabético:\n <br>";
     foreach ($ordenado as $ciudad) {
-        echo "- $ciudad\n";
+        echo "- $ciudad\n <br>";
     }
 }
 
@@ -35,5 +35,21 @@ imprimirCiudadesOrdenadas($ciudades);
 // TAREA: Crea una función que cuente y retorne el número de ciudades que comienzan con una letra específica
 // Ejemplo de uso: contarCiudadesPorInicial($ciudades, 'S') debería retornar 1 (Singapur)
 // Tu código aquí
+
+echo "Tarea";
+
+function contarCiudadesPorInicial($arr, $inicial) {
+    $contador = 0;
+    foreach ($arr as $ciudad) {
+        if (stripos($ciudad, $inicial) === 0) {
+            $contador++;
+        }
+    }
+    return $contador;
+}
+echo "<br>";
+// Ejemplo de uso: contar cuántas ciudades comienzan con 'S'
+$inicial = 'N';
+echo "\nNúmero de ciudades que comienzan con '$inicial': " . contarCiudadesPorInicial($ciudades, $inicial);
 
 ?>
