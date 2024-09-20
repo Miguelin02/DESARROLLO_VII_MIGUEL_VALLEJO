@@ -23,16 +23,17 @@ function asignarLetraCalificacion($promedio) {
 }
 
 // 4. Procesar y mostrar información de estudiantes
-echo "Información de estudiantes:\n";
+echo "Información de estudiantes:\n <br>" ;
 foreach ($estudiantes as &$estudiante) {
     $promedio = calcularPromedio($estudiante["calificaciones"]);
     $estudiante["promedio"] = $promedio;
     $estudiante["letra_calificacion"] = asignarLetraCalificacion($promedio);
     
     echo "{$estudiante['nombre']}:\n";
-    echo "  Calificaciones: " . implode(", ", $estudiante["calificaciones"]) . "\n";
-    echo "  Promedio: " . number_format($promedio, 2) . "\n";
-    echo "  Calificación: {$estudiante['letra_calificacion']}\n\n";
+    echo "  Calificaciones:" . implode(", ", $estudiante["calificaciones"]) . "\n<br>";
+    echo "  Promedio: " . number_format($promedio, 2) . "\n <br>";
+    echo "  Calificación: {$estudiante['letra_calificacion']}\n\n <br><br>";
+   
 }
 
 // 5. Encontrar al estudiante con el promedio más alto
@@ -40,17 +41,17 @@ $mejorEstudiante = array_reduce($estudiantes, function($mejor, $actual) {
     return (!$mejor || $actual["promedio"] > $mejor["promedio"]) ? $actual : $mejor;
 });
 
-echo "Estudiante con el promedio más alto: {$mejorEstudiante['nombre']} ({$mejorEstudiante['promedio']})\n";
+echo "Estudiante con el promedio más alto: {$mejorEstudiante['nombre']} ({$mejorEstudiante['promedio']})\n <br>";
 
 // 6. Calcular y mostrar el promedio general de la clase
 $promedioGeneral = array_sum(array_column($estudiantes, "promedio")) / count($estudiantes);
-echo "Promedio general de la clase: " . number_format($promedioGeneral, 2) . "\n";
+echo "Promedio general de la clase: " . number_format($promedioGeneral, 2) . "\n <br>";
 
 // 7. Contar estudiantes por letra de calificación
 $conteoCalificaciones = array_count_values(array_column($estudiantes, "letra_calificacion"));
-echo "Distribución de calificaciones:\n";
+echo "Distribución de calificaciones:\n <br>";
 foreach ($conteoCalificaciones as $letra => $cantidad) {
-    echo "$letra: $cantidad estudiante(s)\n";
+    echo "$letra: $cantidad estudiante(s)\n <br>";
 }
 
 // TAREA: Implementa una función que identifique a los estudiantes que necesitan tutoría
